@@ -1,0 +1,59 @@
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav #drawer mode="over" [(opened)]="opened" role="navigation" >
+
+        <mat-nav-list class="mat-nav-list-nopad">
+            <!-- <mat-toolbar color="primary" class="mat-elevation-z5 espandir-menu"> -->
+            <mat-toolbar class="black-toolbar mat-elevation-z5 espandir-menu bg-purple">
+
+                <mat-toolbar-row>
+                    <span class="text-c-white">Menú</span>
+                </mat-toolbar-row>
+            </mat-toolbar>
+            <div class="list-menu">
+                <div>
+                    <div class="material-icons-new">home</div>
+                    <a class="link-style" mat-list-item routerLink="/home" (click)="toCloseMenu()">INICIO</a>
+                </div>
+                <div *ngIf="isAdmin">
+                    <div class="material-icons-new">admin_panel_settings</div>
+                    <a class="link-style" mat-list-item routerLink="/admin" (click)="toCloseMenu()">ADMIN</a>
+                </div>
+                <div *ngIf="isLoggedIn">
+                    <div class="material-icons-new">account_circle</div>
+                    <a class="link-style" mat-list-item routerLink="/profile" (click)="toCloseMenu()">PERFIL</a>
+                </div>
+                <div *ngIf="isLoggedIn">
+                    <div class="material-icons-new">leaderboard</div>
+                    <a class="link-style" mat-list-item routerLink="/pr" (click)="toCloseMenu()">RANKING</a>
+                </div>
+                <div>
+                    <div class="material-icons-new">leaderboard</div>
+                    <a class="link-style" mat-list-item routerLink="/products" (click)="toCloseMenu()">PRODUCTOS</a>
+                </div>
+                <div>
+                    <div class="material-icons-new">leaderboard</div>
+                    <a class="link-style" mat-list-item routerLink="/create-product" (click)="toCloseMenu()">PUBLICAR UN PRODUCTO</a>
+                </div>
+                <div>
+                    <div class="material-icons-new">contact_mail</div>
+                    <a class="link-style" mat-list-item routerLink="/contacto" (click)="toCloseMenu()">CONTACTO</a>
+                </div>
+            </div>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="mast-sidenav-content">
+
+        <!-- <app-header-layout (OCSidenav)="onToggleSidenav($event)">
+        </app-header-layout> -->
+
+        <app-navbar (OCSidenav)="onToggleSidenav($event)">
+        </app-navbar>
+
+        <ng-content></ng-content>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.example-container {
+    height: 100%;
+}
+
+.bg-purple{
+    background-color: #6695ff;
+}
+// .df-content{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+.text-c-white{
+    color: #fff;
+}
+.material-icons-new{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    color: #3f79ff;
+    letter-spacing: normal;
+    text-transform: none;
+    display: contents;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.mat-nav-list-nopad {
+    padding-top: 0px;
+}
+
+.espandir-menu {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.list-menu{
+    text-align: center;
+    padding: 5px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.list-menu > div {
+    margin-bottom: 10px;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    
+}
+.link-style{
+    text-decoration: none;
+    color: #3f79ff;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}

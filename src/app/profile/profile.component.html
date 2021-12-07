@@ -1,0 +1,88 @@
+<mat-card class="example-card"> 
+  <mat-card-content>
+
+<br>
+
+<div class="content-img-profile">
+  <img #imageUser class="img-profile" src="{{urlImage2}}" (click)="clickIMG()"alt="">
+</div>
+<input #fileInput type="file" accept=".png, .jpg" class="d-none" (change)="onUpload($event)">
+
+<br>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-success" 
+  role="progressbar" [style.width]="(uploadPercent | async ) + '%'"></div>
+</div>
+
+<br>
+
+<form [formGroup]="loginForm" (ngSubmit)="updateUser()">
+
+  <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>NOMBRE</mat-label>
+    <input matInput #input class="form-control" formControlName="displayName" placeholder="displayName" autocomplete="off">
+  </mat-form-field>
+
+  <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>TAGNAME</mat-label>
+    <input matInput #input class="form-control" formControlName="tagName" placeholder="tagName" autocomplete="off">
+  </mat-form-field>
+
+  <!-- <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>MAIN</mat-label>
+    <mat-select formControlName="main">
+      <mat-option [value]="suit.value" *ngFor="let suit of iconSmash" class="list-icon">
+        <div class="center-text"><img src="{{suit.ImageUrl}}" style="width:40px; height: 40px;" alt="">{{suit.name}}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field> 
+
+  <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>SECUNDARIO</mat-label>
+    <mat-select formControlName="secondary">
+      <mat-option [value]="suit.value" *ngFor="let suit of iconSmash" class="list-icon">
+        <div class="center-text"><img src="{{suit.ImageUrl}}" style="width:40px; height: 40px;" alt="">{{suit.name}}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  <div class="form-group w-100 df-sb">
+    <mat-form-field class="w48" appearance="outline">
+      <mat-label>MAIN</mat-label>
+      <mat-select formControlName="main">
+        <mat-option [value]="suit.value" *ngFor="let suit of iconSmash" class="list-icon">
+          <div class="center-text"><img src="{{suit.ImageUrl}}" style="width:40px; height: 40px;" alt="">{{suit.name}}</div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field> 
+  
+    <mat-form-field class="w48" appearance="outline">
+      <mat-label>SECUNDARIO</mat-label>
+      <mat-select formControlName="secondary">
+        <mat-option [value]="suit.value" *ngFor="let suit of iconSmash" class="list-icon">
+          <div class="center-text"><img src="{{suit.ImageUrl}}" style="width:40px; height: 40px;" alt="">{{suit.name}}</div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>ESTADO</mat-label>
+    <mat-select formControlName="state">
+      <mat-option [value]="s.name" *ngFor="let s of states">
+        <div>{{s.name}}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="form-group w-100" appearance="outline">
+    <mat-label>SWITCH CODE</mat-label>
+    <input matInput #sCode class="form-control" formControlName="switchCode" (ngModelChange)="FormatNumber()"
+    placeholder="switchCode" autocomplete="off" maxlength="14" minlength="14" >
+  </mat-form-field>
+
+  <button type="submit" class="w-100  mt-30 green" mat-flat-button  [disabled]="isDisabled">ACTUALIZAR</button>
+</form>
+</mat-card-content>
+</mat-card>
+<br>

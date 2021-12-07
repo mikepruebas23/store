@@ -1,0 +1,43 @@
+<!-- <mat-card class="example-card-2" *ngIf="verifyCode">
+    <mat-card-content>
+        <div class = "tp-container">
+            <h1 class="tac">Valida tu código</h1>
+            <form [formGroup]="validCodeForm" (ngSubmit)="onValideCode()">
+                <mat-form-field class="form-group w-100" appearance="outline">
+                    <mat-label>Código</mat-label>
+                    <input matInput #fc  class="form-control" formControlName="code" placeholder="Ejemplo : 123456789123" autocomplete="off" minlength="14" maxlength="14" (ngModelChange)="FormatNumber()">
+                </mat-form-field>
+
+                <button type="submit" class="w-100  mt-30" mat-flat-button color="primary" [disabled]="btnDisabled">Validar</button>
+            </form>
+         </div> 
+    </mat-card-content>
+</mat-card> -->
+
+<mat-card class="example-card" >
+    <mat-card-content>
+        <div class = "tp-container">
+            <div class="card-avatar example-header-image m-5a"></div>
+            <h1 class="tac">REGISTRO</h1>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <mat-form-field class="form-group w-100" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput #input type="email" class="form-control" formControlName="email" placeholder="EMAIL" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field class="form-group w-100" appearance="outline" hintLabel="Min 6 characters">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" type="password" class="form-control" formControlName="password" placeholder="PASSWORD" autocomplete="off">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <button type="submit" class="w-100 mt-30 green" mat-flat-button [disabled]="isDisabled">Registrarse</button>
+            </form>
+         </div> 
+    </mat-card-content>
+    <div class="form-group mt-3">
+        <p>Ya tienes una cuenta? <a [routerLink]="['/login']"> Iniciar Sesión</a></p>
+    </div>
+</mat-card>
+

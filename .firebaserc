@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "webappsmashranking": {
+      "hosting": {
+        "login": [
+          "webappsmashranking"
+        ]
+      }
+    }
+  }
+}

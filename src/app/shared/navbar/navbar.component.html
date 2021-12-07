@@ -1,0 +1,27 @@
+<nav class="bg">
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <button (click)="openSidenav()" mat-icon-button><mat-icon>menu</mat-icon></button>
+      <a class="navbar-brand" routerLink="/home">Inicio</a>
+      <div id="showCategories">Contamos con surtido de {{categoryList}}</div>
+      <div class="df navbarViolet content-nav" *ngIf="user$ | async as user; else login">
+        <div class="nav-item w70 tac df">
+            <a routerLink="/profile" class="tdn btn-close">{{ user?.email }}</a>
+        </div>
+        
+        <div class="nav-item w30 tac" *ngIf="user">
+            <a class="tdn btn-close content-button" (click)="onLogout()">Cerrar sesión</a>
+        </div>
+      </div>
+      <ng-template #login></ng-template>
+      <!-- <ng-template #login>
+        <div class="" >
+          <div class="nav-item w50 tac content-button" *ngIf="!user">
+            <a class="nav-link tdn btn btn-close" routerLink="/register">REGISTRO</a>
+          </div>
+          <div class="nav-item w50 tac content-button" *ngIf="!user">
+            <a class="nav-link tdn btn-close" routerLink="/login">LOGIN</a>
+          </div>
+        </div>
+      </ng-template> -->
+    </div>
+  </nav>

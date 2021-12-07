@@ -1,0 +1,87 @@
+
+@media only screen and (max-width: 425px) {
+  .example-card {
+    width: 80%;
+    margin: 0 auto;
+    // height: 290vh;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+  .w48{
+    width: 48%;
+  }
+  .df-sb{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-img-profile{
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.35);
+    
+  }
+  .img-profile{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+  }
+  .progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+  }
+
+  .progress-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background-color: #007bff;
+    transition: width .6s ease;
+  }
+
+  .progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+  }
+
+  .bg-success {
+    background-color: #28a745 !important;
+  }
+
+  .list-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .center-text {
+    display: flex;
+  }
+  .green{
+    color: white;
+    background: #03a000;
+  }
+  .d-none{
+    display:  none;
+  }
+}

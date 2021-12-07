@@ -1,0 +1,50 @@
+<!-- <button (click)="show()">SHOW</button> -->
+<!-- 
+<div class="container">
+  <div  class="card" *ngFor="let product of products">
+      <div id="content-img"> <img src="{{product.data.photoURL}}" alt="Photo of a Product"></div>
+      <div id="content-desc">
+        <div><p>{{product.data.name}}</p> <p>{{product.data.price}} $</p></div>
+        <p>{{product.data.desc}}</p>
+        
+        <p>Quedan: {{product.data.stock}} en stock.</p>
+      </div>
+      <div id="content-btn">
+        <button mat-raised-button>Agregar</button>
+      </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="lateral">
+    <div>
+      <h1 class="title-orange">Lista de Productos</h1>
+    </div>
+    <div class="list-item">
+      <ul *ngFor="let sp of showProducts">
+        <li>x{{sp.cant}} - {{sp.name}} - {{sp.cost}}$ <span (click)="menosuno(sp.id)">menos1</span><span (click)="eliminar(sp.id)">Eliminar</span></li>
+       
+      </ul>
+    </div>
+    <div id="itotal" class="title-orange">{{sTotal}}$</div>
+    <br>
+    <div class="btn-content">
+      <button mat-raised-button (click)="limpiarCarrito()">Vaciar Carrito</button>
+      <button mat-raised-button >Pagar Carrito</button>
+    </div>
+  </div>
+  <div class="store">
+    <div  class="card" *ngFor="let product of products">
+      <div id="content-img"> <img src="{{product.data.photoURL}}" alt="Photo of a Product"></div>
+      <div id="content-desc">
+        <div id="text"><p>{{product.data.name}}</p></div>
+        <!-- <p>Quedan: {{product.data.stock}} en stock.</p> -->
+        <p id="desc">{{product.data.desc}}</p>
+        <p id="price" class="title-orange">{{product.data.price}}$</p>
+      </div>
+      <div id="content-btn">
+        <button mat-raised-button (click)="addProduct(product.data.name,product.data.price)">Agregar</button>
+      </div>
+  </div>
+  </div>
+</div>

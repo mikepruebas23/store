@@ -1,0 +1,138 @@
+<div class="container">
+    <div class="w-20">
+        <button type="submit" (click)="manualtoggle()" mat-raised-button mat-button color="primary">{{isVisibleText}}</button>
+    </div>
+
+    <!-- CREATE PRODUCT -->
+    <mat-card class="example-card" *ngIf="!isVisible"> 
+        <mat-card-content>
+            <h1><div class="material-icons-new">add</div> Alta Producto</h1>
+            <div class="content-img-profile">
+                <img #imageUser class="img-profile" src="{{urlImage2}}" (click)="clickIMG()"alt="">
+            </div>
+            <input #fileInput type="file" accept=".png, .jpg" class="d-none" (change)="onUpload1($event)">
+      
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" 
+                role="progressbar" [style.width]="(uploadPercent | async ) + '%'"></div>
+            </div>
+            
+            <br>
+        
+            <form [formGroup]="createForm" (ngSubmit)="createProduct()">
+            
+                <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>NOMBRE</mat-label>
+                    <input matInput #input class="form-control" formControlName="name" placeholder="Nombre" autocomplete="off">
+                </mat-form-field>
+            
+                <mat-form-field class="form-group w-45" appearance="outline">
+                    <mat-label>DESCRIPCIÓN</mat-label>
+                    <input matInput #input class="form-control" formControlName="desc" placeholder="Descripción del producto" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>CATEGORIA</mat-label>
+                    <mat-select formControlName="category">
+                      <mat-option [value]="c.name" *ngFor="let c of category">
+                        <div>{{c.name}}</div>
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                  <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>PRECIO DEL PRODUCTO</mat-label>
+                    <input matInput #sCode class="form-control" formControlName="price" placeholder="Precio del producto" autocomplete="off" maxlength="8" minlength="1" >
+                    <mat-error *ngIf="createForm.controls.price.invalid">
+                        <span *ngIf="createForm.controls.price.invalid">Este campo solo acepta números.</span>
+                    </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field class="form-group w-45" appearance="outline">
+                    <mat-label>STOCK</mat-label>
+                    <input matInput #sCode class="form-control" formControlName="stock" placeholder="unidades" autocomplete="off" maxlength="6" minlength="1" >
+                    <mat-error *ngIf="createForm.controls.stock.invalid">
+                        <span *ngIf="createForm.controls.stock.invalid">Este campo solo acepta números.</span>
+                    </mat-error>
+                </mat-form-field>  
+            
+                <button type="submit" class="w-100  mt-30 green"  mat-raised-button mat-button color="primary" [disabled]="!createForm.valid">Agregar</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    
+    <!-- UPDATE PRODUCT -->
+    <mat-card class="example-card" *ngIf="isVisible"> 
+        <mat-card-content>
+            
+            <h1><div class="material-icons-new">edit</div> Actualizar Producto </h1>
+
+             <!-- List Products -->
+            <form [formGroup]="findProductForm" (ngSubmit)="findProduct()">
+                <mat-form-field class="form-group mr10 w-70" appearance="outline">
+                    <mat-label>Lista de Productos</mat-label>
+                    <mat-select formControlName="findproduct">
+                    <mat-option [value]="product.key" *ngFor="let product of products" class="list-icon">
+                        <div class="center-text">{{product.name}}</div>
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button type="submit" class="w-20" mat-flat-button color="primary" [disabled]="!findProductForm.valid"><span class="material-icons-white">search</span></button>
+                
+            </form>
+
+            <div class="content-img-profile">
+                <img #imageUser class="img-profile" src="{{urlImageUpdate}}" (click)="clickIMG()"alt="">
+            </div>
+            <input #fileInput type="file" accept=".png, .jpg" class="d-none" (change)="onUpload2($event)">
+      
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" 
+                role="progressbar" [style.width]="(uploadPercentUpdate | async ) + '%'"></div>
+            </div>
+          
+            <form [formGroup]="updateForm" (ngSubmit)="updateProduct()">
+            
+                <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>NOMBRE</mat-label>
+                    <input matInput #input class="form-control" formControlName="name" placeholder="Nombre" autocomplete="off">
+                </mat-form-field>
+            
+                <mat-form-field class="form-group w-45" appearance="outline">
+                    <mat-label>DESCRIPCIÓN</mat-label>
+                    <input matInput #input class="form-control" formControlName="desc" placeholder="Descripción del producto" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>CATEGORIA</mat-label>
+                    <mat-select formControlName="category">
+                      <mat-option [value]="c.name" *ngFor="let c of category">
+                        <div>{{c.name}}</div>
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                  <mat-form-field class="form-group w-45 mr5" appearance="outline">
+                    <mat-label>PRECIO DEL PRODUCTO</mat-label>
+                    <input matInput #sCode class="form-control" formControlName="price" placeholder="Precio del producto" autocomplete="off" maxlength="8" minlength="1" >
+                    <mat-error *ngIf="createForm.controls.price.invalid">
+                        <span *ngIf="createForm.controls.price.invalid">Este campo solo acepta números.</span>
+                    </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field class="form-group w-45" appearance="outline">
+                    <mat-label>STOCK</mat-label>
+                    <input matInput #sCode class="form-control" formControlName="stock" placeholder="unidades" autocomplete="off" maxlength="6" minlength="1" >
+                    <mat-error *ngIf="createForm.controls.stock.invalid">
+                        <span *ngIf="createForm.controls.stock.invalid">Este campo solo acepta números.</span>
+                    </mat-error>
+                </mat-form-field>  
+            
+                <button type="submit" class="w-45 green mr5"  mat-raised-button mat-button color="primary" [disabled]="!updateForm.valid">Actualizar</button>
+
+                <button type="submit" class="w-45 red"  mat-raised-button mat-button color="danger" [disabled]="!updateForm.valid">Borrar</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    
+</div>

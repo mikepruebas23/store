@@ -1,0 +1,27 @@
+<mat-card class="admin">
+    <br>
+    <form [formGroup]="playerForm" (ngSubmit)="findPlayer()">
+        <mat-form-field class="form-group mr-20" appearance="outline">
+            <mat-label>JUGADOR</mat-label>
+            <mat-select formControlName="player" (ngModelChange)="checkData($event)">
+              <mat-option [value]="dl.key" *ngFor="let dl of dataList" class="list-icon">
+                <div class="center-text">{{dl.name}}</div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button type="submit" class="w-100  mt-30" mat-flat-button color="primary" [disabled]="isDisabled">Buscar</button>
+    </form>
+<!-- UPDATE PLAYER FORM -->
+    <form [formGroup]="playerToUpdateForm" (ngSubmit)="updatePlayer()" *ngIf="isVisible">
+      <mat-form-field class="d-none" appearance="outline">
+        <mat-label>UID</mat-label>
+        <input matInput #input class="form-control" formControlName="uid" placeholder="uid" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field class="form-group mr-20" appearance="outline">
+        <mat-label>RANKING POINTS</mat-label>
+        <input matInput #input class="form-control" formControlName="rnkPoints" placeholder="Puntos" autocomplete="off">
+      </mat-form-field>
+        <button type="submit" class="w-100  mt-30" mat-flat-button color="primary" [disabled]="isDisabled2">Actualizar</button>
+  </form>
+</mat-card>

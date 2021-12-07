@@ -1,0 +1,37 @@
+<section class="mat-typography body">
+  <div class="container" style="padding-top: 18px;">
+    <table mat-table #table [dataSource]="dataSource"
+    matSort  class="full-width-table mat-elevation-z8">
+
+      <ng-container matColumnDef="pos"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><img class="img-trophy" src="https://raw.githubusercontent.com/mikepruebas23/IMAGES/7cec4baf66876908fe67ee0d8dfef8f3deecc867/sources/trofeo.svg" width="25px" height="25px" alt=""> </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'text-success': element.tagName === TAG_NAME}">{{element.position}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tagName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tag</th>
+        <td mat-cell *matCellDef="let element"[ngClass]="{'text-success': element.tagName === TAG_NAME}"><a routerLink="/user-details/{{element.uid}}/{{element.position}}">{{element.tagName}}</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="main">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Main</th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'text-success': element.tagName === TAG_NAME}">
+          <img  src="{{element.main}}" width="35px" height="35px">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rnkPoints" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header >Points</th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{'text-success': element.tagName === TAG_NAME}"> {{element.rnkPoints}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsSmash"  class="tr-th-row"> </tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsSmash;"  class="example-element-row" class="tr-tr-row"
+      [ngClass]="{'myRow': row.tagName === TAG_NAME}"></tr>
+
+    </table>
+    <br>
+    <mat-paginator #paginator [pageSizeOptions]="[8, 16, 36, 64]" showFirstLastButtons></mat-paginator>
+  </div>
+</section>
+<br>

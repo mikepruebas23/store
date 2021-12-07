@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@media only screen and (max-width: 425px) {
+  .container-content {
+    width: 95%;
+    background-color: #fff;
+    // height: 190vh;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('../../assets/img9.jpg');
+    background-size: cover;
+  }
+
+  .img-profile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 15px;
+    border: 5px solid #fff;
+    margin-bottom: 10px;
+  }
+
+  .txt-profile {
+    // color: #fff;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .img-profile>img {
+    width: 100%;
+    border-radius: 50%;
+    height: inherit;
+  }
+  .profile-content{
+    padding: 15px;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+  }
+  .profile-footer{
+    padding: 15px;
+    font-family: "Rubik", sans-serif;
+  }
+  .wa,.fb,.email{
+      padding: 7px;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      background-color:#f1f1f1;
+
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+  }
+  .wa>img,.fb>img,.email>img{
+    width: 50px;
+    height: 50px;
+  }
+  .wa{
+    // background-color: #3bdc77;
+    color: #16c71c;;
+  }
+  .fb{
+    // background-color: #366de0;
+    color:  #366de0
+  }
+  .email{
+    //   background-color: #ea4335;
+      color:  #ea4335;
+    }
+}

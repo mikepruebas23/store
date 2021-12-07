@@ -85,7 +85,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy  {
 
 
   emojiPath(emoji) {
-   return `assets/reactions/${emoji}.svg`
+  //  return `assets/reactions/${emoji}.svg`
   }
 
   hasReactions(index) {

@@ -20,17 +20,27 @@
     <div>
       <h1 class="title-orange">Lista de Productos</h1>
     </div>
-    <div class="list-item">
-      <ul *ngFor="let sp of showProducts">
-        <li>x{{sp.cant}} - {{sp.name}} - {{sp.cost}}$ <span (click)="menosuno(sp.id)">menos1</span><span (click)="eliminar(sp.id)">Eliminar</span></li>
-       
-      </ul>
+    <div id="list" class="list-item">
+      <div id="list-header">
+        <div>Cantidad</div>
+        <div>Nombre</div>
+        <div>Costo</div>
+      </div>
+      <div id="sp-list" *ngFor="let sp of showProducts">
+        <div id="sp-items">
+          <div>{{sp.cant}}</div>
+          <div>{{sp.name}}</div>
+          <div>{{sp.cost}}$</div>
+          <span (click)="menosuno(sp.id)" id="less-icon" class="material-icons">remove</span>
+          <span (click)="eliminar(sp.id)" id="delete-icon" class="material-icons">delete</span>
+        </div>
+      </div>
     </div>
     <div id="itotal" class="title-orange">{{sTotal}}$</div>
     <br>
     <div class="btn-content">
+      <button id="btn-pagar" mat-raised-button >Pagar Carrito</button>
       <button mat-raised-button (click)="limpiarCarrito()">Vaciar Carrito</button>
-      <button mat-raised-button >Pagar Carrito</button>
     </div>
   </div>
   <div class="store">
@@ -43,7 +53,7 @@
         <p id="price" class="title-orange">{{product.data.price}}$</p>
       </div>
       <div id="content-btn">
-        <button mat-raised-button (click)="addProduct(product.data.name,product.data.price)">Agregar</button>
+        <button mat-raised-button id="btn-agregar"(click)="addProduct(product.data.name,product.data.price)">Agregar</button>
       </div>
   </div>
   </div>

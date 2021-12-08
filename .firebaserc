@@ -2,7 +2,7 @@
   "targets": {
     "webappsmashranking": {
       "hosting": {
-        "login": [
+        "store": [
           "webappsmashranking"
         ]
       }

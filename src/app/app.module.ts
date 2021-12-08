@@ -40,7 +40,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatStepperModule} from '@angular/material/stepper';
 
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterCodeComponent } from './register-code/register-code.component';
 import { ProductsComponent } from './products/products.component';
@@ -55,7 +54,6 @@ import { CreateProductComponent } from './create-product/create-product.componen
     ProfileComponent,
     MiTablaComponent,
     SideNavComponent,
-    UserDetailsComponent,
     ContactComponent,
     RegisterCodeComponent,
     ProductsComponent,
